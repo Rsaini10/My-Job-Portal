@@ -10,6 +10,18 @@ const applyToJob = async (req, res) => {
       return res.status(404).json({ message: "Job not found" });
     }
 
+    // 🔥 CHECK IF ALREADY APPLIED
+    const existingApplication = await Application.findOne({
+      applicant: req.user._id,
+      job: req.params.id,
+    });
+
+    if (existingApplication) {
+      return res.status(400).json({
+        message: "You have already applied to this job",
+      });
+    }
+
     const application = await Application.create({
       applicant: req.user._id,
       job: req.params.id,
@@ -24,6 +36,7 @@ const applyToJob = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
 const getJobApplicants = async (req, res) => {
   try {
     const jobId = req.params.id;

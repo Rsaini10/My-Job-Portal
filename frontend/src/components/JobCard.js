@@ -4,7 +4,7 @@ import '../styles/Components.css';
 const JobCard = ({ job, onApply, showApplyButton }) => {
   return (
     <div className="job-card">
-      <div className="job-card-header">
+<div className="job-card-header">
         <h3>{job.title}</h3>
         <span className="company-badge">{job.company}</span>
       </div>
