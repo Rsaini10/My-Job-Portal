@@ -78,7 +78,7 @@ const ApplicantsList = ({ job, onClose }) => {
                       </td>
                       <td>
                         <a
-                          href={`http://localhost:5000/${application.resume}`}
+                          href={`https://jobportal-backend-g50w.onrender.com/${application.resume}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="btn-link"
