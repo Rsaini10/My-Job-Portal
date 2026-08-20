@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://jobportal-backend-g50w.onrender.com';
+const API_BASE_URL = 'https://jobportal-api-2026.onrender.com';
 
 // Create axios instance
 const api = axios.create({
