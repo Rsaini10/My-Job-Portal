@@ -11,6 +11,7 @@ const path = require("path");
 
 // Load environment variables
 dotenv.config();
+console.log("MONGO_URI exists:", !!process.env.MONGO_URI);
 connectDB();
 // Initialize express app
 const app = express();
