@@ -10,12 +10,12 @@ const api = axios.create({
 // Auth Services
 export const authService = {
   register: async (userData) => {
-    const response = await api.post('/auth/register', userData);
+    const response = await api.post('/api/auth/register', userData);
     return response.data;
   },
 
   login: async (credentials) => {
-    const response = await api.post('/auth/login', credentials);
+    const response = await api.post('/api/auth/login', credentials);
     return response.data;
   },
 };
@@ -23,26 +23,26 @@ export const authService = {
 // Job Services
 export const jobService = {
   getAllJobs: async () => {
-    const response = await api.get('/jobs');
+    const response = await api.get('/api/jobs');
     return response.data;
   },
 
   createJob: async (jobData, token) => {
-    const response = await api.post('/jobs', jobData, {
+    const response = await api.post('/api/jobs', jobData, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
   },
 
   deleteJob: async (jobId, token) => {
-    const response = await api.delete(`/jobs/${jobId}`, {
+    const response = await api.delete(`/api/jobs/${jobId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
   },
 
   applyToJob: async (jobId, formData, token) => {
-    const response = await api.post(`/jobs/${jobId}/apply`, formData, {
+    const response = await api.post(`/api/jobs/${jobId}/apply`, formData, {
       headers: {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'multipart/form-data',
@@ -52,7 +52,7 @@ export const jobService = {
   },
 
   getJobApplicants: async (jobId, token) => {
-    const response = await api.get(`/jobs/${jobId}/applicants`, {
+    const response = await api.get(`/api/jobs/${jobId}/applicants`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
